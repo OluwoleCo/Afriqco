@@ -12,12 +12,12 @@ const Company = () => {
       title: {
         fontSize: 25,
         color: '#2c3e50',
-        fontWeight: 'bold'
+        // fontWeight: 'bold'
       },
       description:{
         fontSize: 19,
         color: '#95a5a6',
-        fontWeight: 'bold'
+        // fontWeight: 'bold'
       },
       card: {
         height: 210,
@@ -32,14 +32,14 @@ const Company = () => {
       contBox: {
         width: '70%',
         margin: '0 auto',
-        color: 'red',
         // marginTop: 100
       },
       boxTitle: {
-        fontSize: '16px',
+        fontSize: '22px',
         margin: '2em 0 0 0',
-        height: '26%'
+        height: '26%',
       },
+
       boxDetails: {
         fontSize: '2.7em',
         fontWeight: 600,
@@ -59,15 +59,37 @@ const Company = () => {
 
       <div style={companyStyle.contBox}>
         <div className="row">
-          <div style={companyStyle.card} className="col-sm-6 col-md-6 col-lg-6">
-            <p style={companyStyle.boxTitle}>Country</p>
+          <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
+            <p style={companyStyle.boxTitle}>Founding Date</p>
+            <p style={companyStyle.boxDetails}>2013</p>
+          </div>
+
+          <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
+            <p style={companyStyle.boxTitle}>Location</p>
             <p style={companyStyle.boxDetails}>Nigeria</p>
           </div>
 
-          <div style={companyStyle.card} className="col-sm-6 col-md-6 col-lg-6">
-            <p>Country</p>
-            <p>Nigeria</p>
+          <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
+            <p style={companyStyle.boxTitle}>Industry</p>
+            <p style={companyStyle.boxDetails}>Wearable</p>
           </div>
+
+          <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
+            <p style={companyStyle.boxTitle}>Funding Status</p>
+            <p style={companyStyle.boxDetails}>Seed stage</p>
+          </div>
+
+          <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
+            <p style={companyStyle.boxTitle}>Number of Employees</p>
+            <p style={companyStyle.boxDetails}>12</p>
+          </div>
+
+          <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
+            <p style={companyStyle.boxTitle}>Founders</p>
+            <p style={companyStyle.boxDetails}>Brian Schowengerdt</p>
+          </div>
+
+          
         </div>
        </div>
     </div>
