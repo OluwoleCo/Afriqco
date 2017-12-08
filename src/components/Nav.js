@@ -1,7 +1,7 @@
 import React from 'react';
 
  const Nav = () =>
-    <nav className="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div className="navbar navbar-default navbar-fixed-top" role="navigation">
       <div className="container">
         <div>
           <a href="/">Afriqco</a>
@@ -9,6 +9,6 @@ import React from 'react';
           <button></button>
         </div>
       </div>
-    </nav>
+    </div>
 
 export default Nav;

@@ -1,10 +1,31 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+
+// Redux
+import { connect } from 'react-redux';
+import { fetchData } from '../actions/companiesAction'
+
+// Route
+import { Link } from 'react-router-dom'
 
 class Companies extends Component {
+  state = {
+    companies: [
+      {
+        name: 'Asoriba',
+        description: 'Church APp',
+        industry: 'SAAS'
+      }
+    ]
+  } 
+  componentDidMount() {
+    // let url = 'https://interpay-alumni-api.herokuapp.com/api/v1/users/'
+    let url ='http://localhost:6069/companies'
+    this.props.fetchData(url)
+  }
 
   render() {
     
-    let asset = '../assets'
+    let asset = '../assets';
     let companiesStyle = {
       container: {
         // width: '100%',
@@ -17,7 +38,7 @@ class Companies extends Component {
         marginBottom: 40,
         paddingLeft: 10,
         paddingRight: 10,
-       },
+      },
       image: {
         height: 100,
         width: 100,
@@ -33,7 +54,7 @@ class Companies extends Component {
         color: '#6d819c',
         fontWeight: 'bold'
       },
-      description:{
+      description: {
         marginTop: '-10px',
         fontSize: 9,
         color: '#5c196b',
@@ -51,21 +72,62 @@ class Companies extends Component {
         border: 'none'
       }
     }
+    let companies = this.props.companies;
+    let companyOne = this.props.companies[0];
+    let coy;
+  
+    if (companies && companyOne) { 
+      coy = companies.map(company => {
+        return(
+          <Link to={`/companies/${company.name}`}>
+            <div className="col-lg-4 col-md-6 col-sm-6">
+              <div style={companiesStyle.container}>
+                <img style={companiesStyle.image} src={require('../assets/feed.jpg')} />
+                <div style={companiesStyle.content}>
+                  <h2 style={companiesStyle.title}>{company.name}</h2>
+                  <p style={companiesStyle.description}>{company.description}</p>
+                  <button style={companiesStyle.button}>{company.industry}</button>
+                  {/* <p style={companiesStyle.country}>Lagos</p> */}
+                </div>
+              </div>
+            </div>
+          </Link>
+        )
+     })
 
-    return (
-      <div className="col-lg-4 col-md-6 col-sm-6">
-        <div style={companiesStyle.container}>
-          <img style={companiesStyle.image} src={require('../assets/feed.jpg')} />
-          <div style={companiesStyle.content}>
-            <h2 style={companiesStyle.title}>ReadByHumans</h2>
-            <p style={companiesStyle.description}>Articles, narrated by real people</p>
-            <button style={companiesStyle.button}>Media</button>
-            {/* <p style={companiesStyle.country}>Lagos</p> */}
-          </div>
-        </div>
-      </div>
-    );
+     return <div>{coy}</div>
+    } else {
+      return <div>...Loading</div>
+    }
+    
   }
 }
 
-export default Companies;
+
+
+const mapStateToProps = state => ({
+  companies: state.items,
+  hasErrored: state.hasErrored,
+  isLoading: state.isLoading
+})
+
+const mapDispatchToProps = dispatch => {
+  return {
+  fetchData: (url) => dispatch(fetchData(url))
+}
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps) (Companies);
+
+{/* <div className="col-lg-4 col-md-6 col-sm-6">
+  <div style={companiesStyle.container}>
+    <img style={companiesStyle.image} src={require('../assets/feed.jpg')} />
+    <div style={companiesStyle.content}>
+      <h2 style={companiesStyle.title}>{company.name}</h2>
+      <p style={companiesStyle.description}>{company.description}</p>
+      <button style={companiesStyle.button}>{company.industry}</button>
+      {/* <p style={companiesStyle.country}>Lagos</p> */}
+//     </div>
+//   </div>
+// </div> */}
