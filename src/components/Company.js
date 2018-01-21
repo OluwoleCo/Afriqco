@@ -8,7 +8,7 @@ class Company extends Component {
 
   componentDidMount() {
 
-    let url = 'http://localhost:6069/companies'
+    let url = 'http://localhost:8000/companies'
     this.props.fetchData(url)
   }
   
@@ -18,13 +18,14 @@ class Company extends Component {
 
     let companyStyle = {
       image: {
-        height: 100,
-        width: 100,
+        height: 200,
+        width: 200,
           marginTop: 20
         },
         title: {
           fontSize: 25,
-          color: '#2c3e50',
+          // color: '#2c3e50',
+          color: '#3b393d',
           // fontWeight: 'bold'
         },
         description:{
@@ -34,19 +35,32 @@ class Company extends Component {
         },
         card: {
           height: 210,
-          backgroundColor: '#ecf0f1',
+          border: '1px solid rgb(236, 240, 241)',
+          backgroundColor: '#fff',
           width: '45%',
           position: 'relative',
           float: 'left',
           textAlign: 'center',
           display: 'block',
-          margin: '2%'
+          margin: '2%',
+          borderRadius: 3
         },
         contBox: {
           width: '70%',
           margin: '0 auto',
+          // boxShadow: '0 1px 2px rgba(0, 0, 0, 0.15)',
+          transition: 'box - shadow .3s',
           // marginTop: 100
         },
+
+        contBoxAfter: {
+          boxShadow: '0 0 11px rgba(33,33,33,.2)'
+        },
+
+        onHover: (hover) => {
+         return hover ? this.contBoxAfter : this.contBox
+        },
+
         boxTitle: {
           fontSize: '22px',
           margin: '2em 0 0 0',
@@ -70,11 +84,12 @@ class Company extends Component {
 
     
     if (company && companyOne) {
-      const getCompany = (name) => {
-        const isCompany = p => p.name === name;
+      const getCompany = (blurb) => {
+        const isCompany = p => p.blurb === blurb;
         return company.find(isCompany)
       }
       let coy = getCompany(params)
+      console.log(coy)
       return (
         <div>
           
@@ -89,12 +104,12 @@ class Company extends Component {
             <div className="row">
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
                 <p style={companyStyle.boxTitle}>Founding Date</p>
-                <p style={companyStyle.boxDetails}>2013</p>
+                <p style={companyStyle.boxDetails}>{coy.founded}</p>
               </div>
 
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
-                <p style={companyStyle.boxTitle}>Location</p>
-                <p style={companyStyle.boxDetails}>Nigeria</p>
+                <p style={companyStyle.boxTitle}>Country</p>
+                <p style={companyStyle.boxDetails}>{coy.country}</p>
               </div>
 
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
@@ -104,17 +119,17 @@ class Company extends Component {
 
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
                 <p style={companyStyle.boxTitle}>Funding Status</p>
-                <p style={companyStyle.boxDetails}>Seed stage</p>
+                <p style={companyStyle.boxDetails}>{coy.funding}</p>
               </div>
 
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
                 <p style={companyStyle.boxTitle}>Number of Employees</p>
-                <p style={companyStyle.boxDetails}>12</p>
+                <p style={companyStyle.boxDetails}>{coy.employees}</p>
               </div>
 
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
-                <p style={companyStyle.boxTitle}>Founders</p>
-                <p style={companyStyle.boxDetails}>Brian Schowengerdt</p>
+                <p style={companyStyle.boxTitle}>CEO</p>
+                <p style={companyStyle.boxDetails}>{coy.ceo}</p>
               </div>
 
 

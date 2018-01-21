@@ -19,7 +19,7 @@ class Companies extends Component {
   } 
   componentDidMount() {
     // let url = 'https://interpay-alumni-api.herokuapp.com/api/v1/users/'
-    let url ='http://localhost:6069/companies'
+    let url ='http://localhost:8000/companies'
     this.props.fetchData(url)
   }
 
@@ -75,11 +75,12 @@ class Companies extends Component {
     let companies = this.props.companies;
     let companyOne = this.props.companies[0];
     let coy;
+
   
     if (companies && companyOne) { 
       coy = companies.map(company => {
         return(
-          <Link to={`/companies/${company.name}`}>
+          <Link to={`/companies/${company.blurb}`}>
             <div className="col-lg-4 col-md-6 col-sm-6">
               <div style={companiesStyle.container}>
                 <img style={companiesStyle.image} src={require('../assets/feed.jpg')} />
@@ -87,7 +88,6 @@ class Companies extends Component {
                   <h2 style={companiesStyle.title}>{company.name}</h2>
                   <p style={companiesStyle.description}>{company.description}</p>
                   <button style={companiesStyle.button}>{company.industry}</button>
-                  {/* <p style={companiesStyle.country}>Lagos</p> */}
                 </div>
               </div>
             </div>
@@ -120,14 +120,3 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(mapStateToProps, mapDispatchToProps) (Companies);
 
-{/* <div className="col-lg-4 col-md-6 col-sm-6">
-  <div style={companiesStyle.container}>
-    <img style={companiesStyle.image} src={require('../assets/feed.jpg')} />
-    <div style={companiesStyle.content}>
-      <h2 style={companiesStyle.title}>{company.name}</h2>
-      <p style={companiesStyle.description}>{company.description}</p>
-      <button style={companiesStyle.button}>{company.industry}</button>
-      {/* <p style={companiesStyle.country}>Lagos</p> */}
-//     </div>
-//   </div>
-// </div> */}
