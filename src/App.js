@@ -8,13 +8,14 @@ import Company from './components/Company'
 
 let appStyle = {
   container: {
-    marginTop: 80
+    marginTop: 15,
   }
 }
 
 const App = () => (
-  <div className="App container-fluid">
-    <Nav />
+    
+  <div  >
+  <Nav />
     <div style={appStyle.container} className="container">
       <div className="row">
         <Switch>

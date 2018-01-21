@@ -2,8 +2,17 @@ import React from 'react';
 
 const styles = {
   container: {
-    height: 100,
-    backgroundColor: 'red'
+    height: 200,
+    textAlign: 'center',
+    backgroundColor: '#FBFBFB'
+  },
+  heading: {
+    marginTop: 50,
+    fontSize: 50,
+  },
+  text: {
+    fontSize: 20,
+    color: '#BBBBBC'
   }
 }
  const Nav = () =>
@@ -11,9 +20,8 @@ const styles = {
     <div style={styles.container}>
       <div className="container">
         <div>
-          <a href="/">Afriqco</a>
-
-          <button></button>
+          <h3 style={styles.heading}>Afriqco</h3>
+          <p style={styles.text}>Africa's most promising startups</p>
         </div>
       </div>
     </div>

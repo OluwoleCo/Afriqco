@@ -50,13 +50,13 @@ class Companies extends Component {
         marginLeft: 5
       },
       title: {
-        fontSize: 12,
+        fontSize: 18,
         color: '#6d819c',
         fontWeight: 'bold'
       },
       description: {
         marginTop: '-10px',
-        fontSize: 9,
+        fontSize: 12,
         color: '#5c196b',
         fontWeight: 'bold'
       },
