@@ -21,7 +21,8 @@ const styles = {
       <div className="container">
         <div>
           <h3 style={styles.heading}>Afriqco</h3>
-          <p style={styles.text}>Africa's most promising startups</p>
+          <p style={styles.text}>Snapshot of Africa's most promising startups</p>
+          <span style={{ width: 20, height: 20}} className="flag-icon flag-icon-us"></span>
         </div>
       </div>
     </div>

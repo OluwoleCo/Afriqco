@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-let baseUrl = 'http://localhost:8080';
+let baseUrl = 'https://afriqco.herokuapp.com/';
 
 let HTTP = {
   get: (url) => {
@@ -14,9 +14,11 @@ let HTTP = {
     );
   },
   post: (url, payload) => {
+    console.log('AXIOS', payload)
     return (
         axios.post(baseUrl + url, payload)
           .then(function(response) {
+            console.log(response.data)
             return response.data
           }).catch((err) => {
             return err;

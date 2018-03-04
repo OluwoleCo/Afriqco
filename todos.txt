@@ -1,0 +1,3 @@
+Fix upload picture using express and amazon
+Host backend 
+Host frontend

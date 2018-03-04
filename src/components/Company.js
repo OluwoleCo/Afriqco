@@ -3,17 +3,19 @@ import React, {Component} from 'react';
 // Redux
 import { connect } from 'react-redux';
 import { fetchData } from '../actions/companiesAction'
+import { Image } from 'cloudinary-react';
+
 
 class Company extends Component {
 
   componentDidMount() {
 
-    let url = 'http://localhost:8000/companies'
+    let url = 'https://afriqco.herokuapp.com/companies'
     this.props.fetchData(url)
   }
   
   render() {
-    console.log(this.props)
+    console.log(this.props.companies)
     let asset = '../assets'
 
     let companyStyle = {
@@ -81,21 +83,34 @@ class Company extends Component {
     let companyOne = this.props.companies[0];
     let params = this.props.match.params.id;
     
+    console.log(company)
 
     
     if (company && companyOne) {
-      const getCompany = (blurb) => {
-        const isCompany = p => p.blurb === blurb;
+      const getCompany = (blurbb) => {
+        console.log(blurbb)
+        const isCompany = p => {
+          console.log(p)
+          return p.blurb === blurbb
+        };
+        // console.log(isCompany()
         return company.find(isCompany)
       }
+
+      company.find( function(element) {
+        return element.name === 'Aidabot'
+      })
+
       let coy = getCompany(params)
-      console.log(coy)
+      // console.log('COY',coy)
       return (
         <div>
           
           <div className="col-md-12 col-lg-12 col-sm-12">
             <div style={{textAlign: 'center'}}>
-            <img style={companyStyle.image} src={require('../assets/feed.jpg')} />
+            {/* <img style={companyStyle.image} src={require('../assets/feed.jpg')} /> */}
+            <Image cloudName="asgard" publicId={coy.image} style={companyStyle.image} />
+            {/* <img style={companyStyle.image} src={coy.image} /> */}
             <h1 style={companyStyle.title}>{coy.name}</h1>
             <p style={companyStyle.description}>{coy.description}</p>
             </div>

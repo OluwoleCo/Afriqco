@@ -6,6 +6,8 @@ import { fetchData } from '../actions/companiesAction'
 
 // Route
 import { Link } from 'react-router-dom'
+import { Image } from 'cloudinary-react';
+
 
 class Companies extends Component {
   state = {
@@ -19,7 +21,7 @@ class Companies extends Component {
   } 
   componentDidMount() {
     // let url = 'https://interpay-alumni-api.herokuapp.com/api/v1/users/'
-    let url ='http://localhost:8000/companies'
+    let url ='https://afriqco.herokuapp.com/companies'
     this.props.fetchData(url)
   }
 
@@ -46,8 +48,8 @@ class Companies extends Component {
         float: 'left',
       },
       content: {
-        float: 'left',
-        marginLeft: 5
+        // float: 'left',
+        marginLeft: 108
       },
       title: {
         fontSize: 18,
@@ -83,7 +85,8 @@ class Companies extends Component {
           <Link to={`/companies/${company.blurb}`}>
             <div className="col-lg-4 col-md-6 col-sm-6">
               <div style={companiesStyle.container}>
-                <img style={companiesStyle.image} src={require('../assets/feed.jpg')} />
+                {/* <img style={companiesStyle.image} src={require('../assets/feed.jpg')} /> */}
+                <Image cloudName="asgard" publicId={company.image} style={companiesStyle.image}  />
                 <div style={companiesStyle.content}>
                   <h2 style={companiesStyle.title}>{company.name}</h2>
                   <p style={companiesStyle.description}>{company.description}</p>
