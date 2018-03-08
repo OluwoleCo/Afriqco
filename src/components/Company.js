@@ -15,7 +15,7 @@ class Company extends Component {
   }
   
   render() {
-    console.log(this.props.companies)
+
     let asset = '../assets'
 
     let companyStyle = {
@@ -83,34 +83,21 @@ class Company extends Component {
     let companyOne = this.props.companies[0];
     let params = this.props.match.params.id;
     
-    console.log(company)
 
-    
     if (company && companyOne) {
       const getCompany = (blurbb) => {
-        console.log(blurbb)
-        const isCompany = p => {
-          console.log(p)
-          return p.blurb === blurbb
-        };
-        // console.log(isCompany()
+        const isCompany = p => p.blurb === blurbb
         return company.find(isCompany)
       }
 
-      company.find( function(element) {
-        return element.name === 'Aidabot'
-      })
 
       let coy = getCompany(params)
-      // console.log('COY',coy)
       return (
         <div>
           
           <div className="col-md-12 col-lg-12 col-sm-12">
             <div style={{textAlign: 'center'}}>
-            {/* <img style={companyStyle.image} src={require('../assets/feed.jpg')} /> */}
             <Image cloudName="asgard" publicId={coy.image} style={companyStyle.image} />
-            {/* <img style={companyStyle.image} src={coy.image} /> */}
             <h1 style={companyStyle.title}>{coy.name}</h1>
             <p style={companyStyle.description}>{coy.description}</p>
             </div>

@@ -1,3 +1,2 @@
-Fix upload picture using express and amazon
-Host backend 
-Host frontend
+Change favicon
+Host on netlify
