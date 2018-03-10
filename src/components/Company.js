@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { fetchData } from '../actions/companiesAction'
 import { Image } from 'cloudinary-react';
 
+import { Link } from 'react-router-dom'
 
 class Company extends Component {
 
@@ -84,6 +85,7 @@ class Company extends Component {
     let params = this.props.match.params.id;
     
 
+
     if (company && companyOne) {
       const getCompany = (blurbb) => {
         const isCompany = p => p.blurb === blurbb
@@ -92,13 +94,16 @@ class Company extends Component {
 
 
       let coy = getCompany(params)
+
       return (
         <div>
           
           <div className="col-md-12 col-lg-12 col-sm-12">
             <div style={{textAlign: 'center'}}>
             <Image cloudName="asgard" publicId={coy.image} style={companyStyle.image} />
-            <h1 style={companyStyle.title}>{coy.name}</h1>
+            <a href={coy.website}>
+             <h1 style={companyStyle.title}>{coy.name}</h1>
+            </a>
             <p style={companyStyle.description}>{coy.description}</p>
             </div>
           </div>
@@ -123,7 +128,7 @@ class Company extends Component {
                 <p style={companyStyle.boxTitle}>Funding Status</p>
                 <p style={companyStyle.boxDetails}>{coy.funding}</p>
               </div>
-
+{/* early stage venture, late state venture, ipo */}
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
                 <p style={companyStyle.boxTitle}>Number of Employees</p>
                 <p style={companyStyle.boxDetails}>{coy.employees}</p>
@@ -132,6 +137,16 @@ class Company extends Component {
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
                 <p style={companyStyle.boxTitle}>CEO</p>
                 <p style={companyStyle.boxDetails}>{coy.ceo}</p>
+              </div>
+
+              <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
+                <p style={companyStyle.boxTitle}>Last Funding Type</p>
+                <p style={companyStyle.boxDetails}>{coy.fundingType}</p>
+              </div>
+
+              <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
+                <p style={companyStyle.boxTitle}>Funding Amount</p>
+                <p style={companyStyle.boxDetails}>{coy.fundingAmount}</p>
               </div>
 
 
