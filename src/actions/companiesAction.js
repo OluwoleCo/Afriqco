@@ -1,5 +1,3 @@
-import HTTP from '../services/http'
-
 export function hasErrored(bool) {
   return {
     type: 'HAS_ERRORED',

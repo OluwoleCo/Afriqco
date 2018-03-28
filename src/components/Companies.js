@@ -27,13 +27,13 @@ class Companies extends Component {
 
   render() {
     
-    let asset = '../assets';
+
     let companiesStyle = {
       container: {
         // width: '100%',
         height: 130,
         backgroundColor: '#fff',
-        borderTop: '2px solid #00D3AA',
+        borderTop: '2px solid #FBECEC',
         boxShadow: '0 1px 5px 0 rgba(0,0,0,.08)',
         borderRadius: 3,
         cursor: 'pointer',

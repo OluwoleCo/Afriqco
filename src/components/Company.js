@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { fetchData } from '../actions/companiesAction'
 import { Image } from 'cloudinary-react';
 
-import { Link } from 'react-router-dom'
 
 class Company extends Component {
 
@@ -16,8 +15,6 @@ class Company extends Component {
   }
   
   render() {
-
-    let asset = '../assets'
 
     let companyStyle = {
       image: {
