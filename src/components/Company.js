@@ -91,6 +91,7 @@ class Company extends Component {
 
 
       let coy = getCompany(params)
+      console.log(coy.website)
 
       return (
         <div>
@@ -127,7 +128,7 @@ class Company extends Component {
               </div>
 {/* early stage venture, late state venture, ipo */}
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
-                <p style={companyStyle.boxTitle}>Number of Employees</p>
+                <p style={companyStyle.boxTitle}>Team Size</p>
                 <p style={companyStyle.boxDetails}>{coy.employees}</p>
               </div>
 
@@ -142,7 +143,7 @@ class Company extends Component {
               </div>
 
               <div style={companyStyle.card} className="col-sm-12 col-md-6 col-lg-6">
-                <p style={companyStyle.boxTitle}>Funding Amount</p>
+                <p style={companyStyle.boxTitle}>Amount Raised</p>
                 <p style={companyStyle.boxDetails}>{coy.fundingAmount}</p>
               </div>
 

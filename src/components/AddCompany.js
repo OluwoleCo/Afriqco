@@ -112,7 +112,8 @@ class AddCompany extends Component {
             ref='blurb'
           />
           <input
-            type="file"
+            type="text"
+            placeholder="Images:)"            
             ref='image'
           />
           

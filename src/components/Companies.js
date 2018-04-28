@@ -19,8 +19,7 @@ class Companies extends Component {
       }
     ]
   } 
-  componentDidMount() {
-    // let url = 'https://interpay-alumni-api.herokuapp.com/api/v1/users/'
+  componentDidMount() {  
     let url ='https://afriqco.herokuapp.com/companies'
     this.props.fetchData(url)
   }
