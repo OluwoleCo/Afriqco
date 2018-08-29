@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 
-import logo from './Afriq.png'
+import logo from '../static-asset/Afriq.png'
 
 const styles = {
   container: {

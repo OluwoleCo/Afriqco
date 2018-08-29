@@ -81,7 +81,9 @@ class Companies extends Component {
     if (companies && companyOne) { 
       coy = companies.map(company => {
         return(
-          <Link to={`/companies/${company.blurb}`}>
+          <Link to={`/companies/${company.blurb}`}
+                key={company.blurb}
+          >
             <div className="col-lg-4 col-md-6 col-sm-6">
               <div style={companiesStyle.container}>
                 {/* <img style={companiesStyle.image} src={require('../assets/feed.jpg')} /> */}

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Helmet } from "react-helmet";
 
 // Redux
 import { connect } from 'react-redux';
@@ -95,7 +96,14 @@ class Company extends Component {
 
       return (
         <div>
-          
+          <Helmet>
+            <title>Afriqco - {coy.name}</title>
+            <meta
+              name="twitter:title"
+              content={`${coy.name} - Afriqco`}
+            />
+            <meta name="twitter:description" content={coy.description} />
+          </Helmet>
           <div className="col-md-12 col-lg-12 col-sm-12">
             <div style={{textAlign: 'center'}}>
             <Image cloudName="asgard" publicId={coy.image} style={companyStyle.image} />
